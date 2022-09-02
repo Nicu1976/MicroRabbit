@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Microrabbit.Transfer.Api
+namespace MicroRabbit.Transfer.Api
 {
     public class Program
     {
