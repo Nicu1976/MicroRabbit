@@ -15,12 +15,15 @@ namespace MicroRabbit.Banking.Application.Services
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _accountRepository;
-        private readonly IEventBus _bus;
+        //private readonly IEventBus _bus;
+        private readonly IMediatorBus _mediator;
 
-        public AccountService(IAccountRepository accountRepository, IEventBus bus)
+        //public AccountService(IAccountRepository accountRepository, IEventBus bus, IMediatorBus mediator)
+        public AccountService(IAccountRepository accountRepository, IMediatorBus mediator)
         {
             _accountRepository = accountRepository;
-            _bus = bus;
+            //_bus = bus;
+            _mediator = mediator; 
         }
 
         public IEnumerable<Account> GetAccounts()
@@ -35,7 +38,8 @@ namespace MicroRabbit.Banking.Application.Services
                 accountTransfer.ToAccount, 
                 accountTransfer.TransferAmount);
 
-            _bus.SendCommand(createTransferCommand);
+            //_bus.SendCommand(createTransferCommand);
+            _mediator.SendCommand(createTransferCommand);
         }
     }
 }

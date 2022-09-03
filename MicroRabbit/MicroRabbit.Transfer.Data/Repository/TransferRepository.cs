@@ -23,5 +23,10 @@ namespace MicroRabbit.Transfer.Application.Repository
         {
             return _ctx.TransferLogs;
         }
+
+        public void Add(TransferLog transferLog)
+        {
+            _ctx.Add(transferLog);
+        }
     }
 }

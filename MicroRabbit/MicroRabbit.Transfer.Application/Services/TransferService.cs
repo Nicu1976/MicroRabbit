@@ -25,5 +25,10 @@ namespace MicroRabbit.Transfer.Application.Services
         {
             return _transferRepository.GetTransferLogs();            
         }
+
+        public void AddTransfer(TransferLog transferLog)
+        {
+            _transferRepository.Add(transferLog);
+        }
     }
 }
